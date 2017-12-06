@@ -19,5 +19,11 @@
   "bugs": {
     "url": "https://github.com/reothues/chart/issues"
   },
-  "homepage": "https://github.com/reothues/chart#readme"
+  "homepage": "https://github.com/reothues/chart#readme",
+  "devDependencies": {
+    "less": "^2.7.3",
+    "systemjs": "^0.20.19",
+    "systemjs-plugin-babel": "0.0.25",
+    "typescript": "^2.6.2"
+  }
 }

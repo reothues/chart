@@ -1,0 +1,169 @@
+@white-color: #ccc;
+@gray-color: #999;
+@black-color: #333;
+@blue-color: #39f;
+@font-light: #555
+
+
+@chartwrapper-scales-stroke-color: @black-color;
+@chartwrapper-scales-circle-color: @black-color;
+@chartwrapper-scales-text-color: @font-light;
+@chartwrapper-scales-textfill-color: @font-light;
+@chartwrapper-hscale-path-color: @black-color;
+@chartwrapper-bg-color: @white-color;
+@label-rect-fill-color:  @white-color;
+@label-title-fill-color:  @white-color;
+@label-title-text-color: @black-color;
+@label-stroke-color: @font-light;
+@cursor-stroke-color: @gray-color;
+@scales-circle-fill-color: @blue-color;
+@path-stroke-color: @blue-color;
+
+
+  @line1-color:rgb(137,228,146);
+  @line2-color:rgb(93,165,251);
+  @line3-color:rgb(254,210,106);
+  @line4-color:rgb(181,149,246);
+  @line5-color:rgb(241,145,116);
+.chartwrapper {
+  position: fixed; // left: 0; right: 0;
+  background: @chartwrapper-bg-color;
+  margin-top: -350px;
+  width: inherit;
+  perspective-origin: 100px 300px;
+  perspective: 1210px;
+  >div {
+    height: 300px;
+    >* {
+      position: absolute;
+      top: 30px;
+      will-change: transform;
+      transition: transform 1s;
+
+      text {
+        fill: @font-light;
+        stroke: @font-light;
+      }
+    }
+  }
+
+  h4 {
+    float: right;
+    color: @chartwrapper-scales-text-color;
+    a {
+      border-radius: .5em;
+    }
+    a.line1{background-color: @line1-color}
+    a.line2{background-color: @line2-color}
+    a.line3{background-color: @line3-color}
+    a.line4{background-color: @line4-color}
+    a.line5{background-color: @line5-color}
+  }
+  path {
+    stroke-width: 1;
+    stroke: @path-stroke-color;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    transition: d 1s;
+  }
+  #label {
+    rect {
+      fill: @label-rect-fill-color;
+      stroke: @label-stroke-color;
+    }
+    
+    .mask {
+      fill: @label-title-fill-color;
+      stroke: @font-light;
+    }
+    .line0 {
+      .color(@black-color);
+    }
+  }
+  .cursor {
+    stroke: @cursor-stroke-color;
+  }
+  *.cursor {
+    fill-opacity: 0.03;
+    transition: none;
+    stroke-width: 5;
+    stroke-opacity: 0.3;
+    stroke-dasharray: 2 2;
+  }
+  path.monkey {
+    fill-opacity: 0.1;
+    stroke-width: 2;
+  }
+  path.undefined {
+    stroke-opacity: 0.5;
+  }
+  g g:last-child path {
+    opacity: 1;
+  }
+  .plot {
+    circle {
+      fill: inherit;
+      stroke: inherit;
+      r: 5;
+    }
+    path {
+      stroke-width: 1.5;
+      fill: none;
+    }
+    text {
+      fill: black;
+      stroke: inherit;
+    }
+  }
+  .color(@color) {
+    stroke: @color;
+    fill: @color;
+    color: darken(@color, 25%);
+  }
+  *.line1 {.color(@line1-color)}
+  *.line2 {.color(@line2-color)}
+  *.line3 {.color(@line3-color)}
+  *.line4 {.color(@line4-color)}
+  *.line5 {.color(@line5-color)}
+  // *.line6 {.color(@line6-color)}
+  .scales {
+    stroke: @chartwrapper-scales-stroke-color;
+    stroke-width: 1;
+    stroke-dasharray: 1 1;
+    circle {
+      stroke: @chartwrapper-scales-circle-color;
+      fill: @scales-circle-fill-color;
+      stroke-width: 1;
+      stroke-dasharray: 1 1;
+      r: 1;
+    }
+    text {
+      font-size: @font-size-base;
+      stroke-width: 0;
+      stroke: @chartwrapper-scales-text-color;
+      fill: @chartwrapper-scales-textfill-color;
+    }
+  }
+  .hscale {
+    text {
+      transform: rotate(-20deg) translateY(10px);
+    }
+  }
+  .vscale,
+  .hscale {
+    path {
+      stroke: @chartwrapper-hscale-path-color;
+      stroke-width: 1;
+      stroke-dasharray: 1 1;
+    }
+  }
+  text {
+    stroke-width: 0.5;
+  }
+  .monkey {
+    transition: none;
+    circle {
+      r: 3;
+    }
+  }
+}

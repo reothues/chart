@@ -1,0 +1,24 @@
+
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "module": "commonjs",
+    "target": "es2015",
+    "jsx": "react",
+    "allowSyntheticDefaultImports" : true,
+    "allowJs": true,
+    "moduleResolution": "node",
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
+
+    "outDir": "build/"
+  },
+
+  "include": ["./*","src/**/*"],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts",
+    "**/*.d.ts"
+  ]
+}

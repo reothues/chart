@@ -3,7 +3,7 @@
     <title>My plants</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="../node_modules/systemjs/dist/system.src.js"></script>
+    <script src="./node_modules/systemjs/dist/system.src.js"></script>
       <style>
         html, body, div, span, applet, object, iframe,
         h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -29,131 +29,14 @@
         }
 
       </style>
-<style>
-body{
-  background-attachment: fixed;
-
-  background-size: 100%;
-}
-svg {
-  background: rgba(255,255,255,.75);
-  margin: 5% auto;
-  display: block;
-
-}
-g path {
-  stroke-width: 1;
-  fill: none;
-  stroke: #aef;
-  cursor: pointer;
-  opacity: .5;
-  stroke-linejoin: round;
-  stroke-linecap: round;
-  transition: opacity .1s; 
-}
-g g:last-child path {
-  opacity: 1
-}
-
-.line1 {
-  stroke: #0c0;
-  stroke-width: 5;
-}
-.line1 text{
-  stroke: #0c0;
-  fill: #0c0;
-}
-.line1 circle{
-  fill: #0c0;
-  r: 5;
-}
-.line2 {
-  stroke: #00c;
-  stroke-width: 5;
-}
-.line2 text{
-  stroke: #00c;
-  fill: #00c;
-}
-.line2 circle{
-  fill: #00c;
-  r: 5;
-}
-.line3 {
-  stroke: #c00;
-  stroke-width: 5;
-}
-.line3 text{
-  stroke: #c00;
-  fill: #c00;
-}
-.line3 circle{
-  fill: #c00;
-  r: 5;
-}
-.line4 {
-  stroke: #660;
-  stroke-width: 5;
-}
-.line4 text{
-  stroke: inherit;
-  fill: inherit;
-}
-.line4 circle{
-  fill: inherit;
-  r: 5;
-}
-.line5 {
-  stroke: #606;
-  stroke-width: 5;
-}
-.line5 text{
-  stroke: #606;
-  fill: #606;
-}
-.line5 circle{
-  fill: #606;
-  r: 5;
-}
-.line6 {
-  stroke: #066;
-  stroke-width: 5;
-}
-.line6 text{
-  stroke: #066;
-  fill: #066;
-}
-.line6 circle{
-  fill: #066;
-  r: 5;
-}
-.scales circle {
-  stroke: rgba(130, 164, 1255, .5);
-  fill: #04F;
-  stroke-width: 1;
-  r: 1;
-}
-.scales text{
-  font-size: 23.5;
-  stroke-width: 0.5;
-  stroke: #0ff;
-  fill:#88f;
-  transform: rotate(40)
-}
-text{
-  stroke-width: 0.5;
-}
-
-</style>
-      <style id="fucker"></style>
 
     <script>
       System.config({
         map: {
-          'node_modules': '../node_modules',
+          'node_modules': './node_modules',
 
-          'plugin-babel': '../node_modules/systemjs-plugin-babel/plugin-babel.js',
-          'systemjs-babel-build': '../node_modules/systemjs-plugin-babel/systemjs-babel-browser.js',
+          'plugin-babel': './node_modules/systemjs-plugin-babel/plugin-babel.js',
+          'systemjs-babel-build': './node_modules/systemjs-plugin-babel/systemjs-babel-browser.js',
 
           'app': "./"
         },
@@ -187,12 +70,6 @@ text{
         bb.set('tes14',[113,132,145,133,134,145,135,132,134,135,131,123,134,134,135,135,139,123,134,145,135,132,136,113,135,154,145,135,132,139,132,133,134,145,135,136,7]);
         window.x=chart.draw(chart.drawDeaf());
         document.body.append(window.x)
-
-
-        let bg = new Gen(300, 400);
-        document.getElementById('fucker').textContent = "body {background-image:url('"+bg.dataPNG+"')}"
-
-
       });
       //.catch(function (err) { window.onerror(err); });
 
