@@ -12,10 +12,10 @@
       "./node_modules/@types"
     ],
 
-    "outDir": "build/"
+    "outDir": "lib/"
   },
 
-  "include": ["./*","src/**/*"],
+  "include": ["./*","src/**/*", "demo/**/*"],
   "exclude": [
     "node_modules",
     "**/*.spec.ts",
