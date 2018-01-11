@@ -24,6 +24,8 @@
     "less": "^2.7.3",
     "systemjs": "^0.20.19",
     "systemjs-plugin-babel": "0.0.25",
+    "systemjs-plugin-css": "^0.1.36",
+    "systemjs-plugin-less": "^0.1.2",
     "typescript": "^2.6.2"
   }
 }

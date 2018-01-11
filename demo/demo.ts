@@ -1,7 +1,8 @@
-import {SVGChart} from './drawsvg'
-import {Chart} from './chart'
-import {Blackboard, Line} from './watch'
-import { Gen } from './background';
+import {SVGChart} from '../src/eventsvg'
+import {Chart} from '../src/chart'
+import {Blackboard, Line} from '../src/watch'
+import { Gen } from '../src/background';
+
 let blackboard = new Blackboard
 let chart = new Chart(blackboard);
 let plot = new SVGChart();

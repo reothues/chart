@@ -1,8 +1,9 @@
-@white-color: #ccc;
+@white-color: #fff;
 @gray-color: #999;
 @black-color: #333;
 @blue-color: #39f;
-@font-light: #555
+@font-light: #555;
+@font-size-base: 12px;
 
 
 @chartwrapper-scales-stroke-color: @black-color;
@@ -26,24 +27,20 @@
   @line4-color:rgb(181,149,246);
   @line5-color:rgb(241,145,116);
 .chartwrapper {
-  position: fixed; // left: 0; right: 0;
+  position: fixed;  left: 100; right: 0;
   background: @chartwrapper-bg-color;
-  margin-top: -350px;
   width: inherit;
   perspective-origin: 100px 300px;
   perspective: 1210px;
-  >div {
-    height: 300px;
-    >* {
-      position: absolute;
-      top: 30px;
-      will-change: transform;
-      transition: transform 1s;
+  >* {
+    position: absolute;
+    top: 30px;
+    will-change: transform;
+    transition: transform 1s;
 
-      text {
-        fill: @font-light;
-        stroke: @font-light;
-      }
+    text {
+      fill: @font-light;
+      stroke: @font-light;
     }
   }
 
@@ -108,7 +105,6 @@
     }
     path {
       stroke-width: 1.5;
-      fill: none;
     }
     text {
       fill: black;

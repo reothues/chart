@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="../node_modules/systemjs/dist/system.src.js"></script>
+
+<link rel="stylesheet/less" type="text/css" href="demo.less" />
+
+<script src="../node_modules/less/dist/less.js" type="text/javascript"></script>
       <style>
         html, body, div, span, applet, object, iframe,
         h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -38,14 +42,26 @@
           'plugin-babel': '../node_modules/systemjs-plugin-babel/plugin-babel.js',
           'systemjs-babel-build': '../node_modules/systemjs-plugin-babel/systemjs-babel-browser.js',
 
-          'app': "./"
+          'app': "./",
+          'css': 'node_modules/systemjs-plugin-css',
+          'less': 'node_modules/systemjs-plugin-less',
+          'lesscss': 'node_modules/less'
         },
         packages: {
-          'app': { main: 'demo.js', defaultExtension: 'js' },
-          '': { main: 'index.js', defaultExtension: 'js' },
+          'lesscss': {
+            main: {
+              browser: './dist/less.min.js',
+              node: '@node/less'
+            }
+          },
+          'css': { main: 'css.js' },
+          'less': { main: 'less.js' },
+          'app': { main: '../lib/demo/demo.js', defaultExtension: 'js' }
+          , '': { main: '../lib/demo/demo.js', defaultExtension: 'js' }
         },
         meta: {
           '*.css': {loader: 'systemjs.csstext.js'},
+          '*.less': { loader: 'less' },
           '*.js': {
             babelOptions: {
               es2015: false
@@ -55,6 +71,7 @@
 
         transpiler: 'plugin-babel'
       })
+      // System.import('../node_modules/less/browser.js');
       System.import('app').then(function (m) {
 
         chart.width = 800;
@@ -63,19 +80,32 @@
           from: 0, to: 36, name: a => a
         }
         window.bb = blackboard;
-        window.chart = chart;
-        bb.set('test',[134,136,136,131,132,133,134,145,135,132,134,145,131,132,133,134,145,135,123,134,145,135,132,,133,131,132,133,134,145,135,134,145,135,135,136,136,7]);
-        bb.set('tes1t',[117,132,145,0,14,135,132,131,132,133,134,145,135,132,134,153,134,145,135,123,134,135,135,136,113,134,145,135,132,139,132,133,134,145,135,136,7]);
-        bb.set('test3',[121,132,145,131,132,133,134,145,135,132,134,153,134,145,135,123,134,145,135,129,135,135,136,113,134,145,159,132,139,132,133,134,145,135,136,7]);
-        bb.set('tes14',[113,132,145,133,134,145,135,132,134,135,131,123,134,134,135,135,139,123,134,145,135,132,136,113,135,154,145,135,132,139,132,133,134,145,135,136,7]);
-        window.x=chart.draw(chart.drawDeaf());
-        document.body.append(window.x)
+        let rand = (length = 36, size = 100, range = .3) => {
+          let arr = new Array(length);
+          let i = 0;
+          return arr.fill(size).map(a => a * (i++)/ length + Math.random() * a * range)
+        }
+        bb.set('test',rand());
+        bb.set('tes1t',rand());
+        bb.set('test3',rand());
+        bb.set('tes14',rand());
+        // window.x=plot.draw(chart.drawDeaf());
+        plot.chart = chart;
+        window.x = plot.draw();
+        plot.pages.forEach(svg => {
+          document.body.append(svg)
+
+        });
+        document.body.append(plot.cover)
+        window.x.addEventListener('click', () => {
+          plot.sort();
+        })
       });
       //.catch(function (err) { window.onerror(err); });
 
     </script>
   </head>
-  <body>
+  <body class="chartwrapper">
   </body>
     <!-- <script src="build/bundle/main.js"></script> -->
 
